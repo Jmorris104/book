@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   final List<Map<String, String>> recommendedBooks = [
     {
-      'title': 'The Cask of Amatillado',
-      'author': 'Edgar Allan Poe',
+      'title': 'The Alchemist',
+      'author': 'Paulo Coelho',
       'image': 'assets/book1.png',
     },
     {
@@ -148,7 +148,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// Book Details Screen Placeholder
 class BookDetailsScreen extends StatelessWidget {
   final Map<String, String> book;
 
@@ -160,8 +159,77 @@ class BookDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(book['title']!),
       ),
-      body: Center(
-        child: Text("Details for ${book['title']} by ${book['author']}"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Book Cover
+            Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  book['image']!,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+
+            // Book Title and Author
+            Text(
+              book['title']!,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'by ${book['author']}',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            SizedBox(height: 16),
+
+            // Book Description and Metadata
+            Text(
+              "Description: A captivating story about ...",
+              style: TextStyle(fontSize: 16),
+            ),
+            SizedBox(height: 16),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Ratings: 4.5/5", style: TextStyle(fontSize: 16)),
+                Text("Genre: Fiction", style: TextStyle(fontSize: 16)),
+              ],
+            ),
+            SizedBox(height: 16),
+
+            // Action Buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Add to Library functionality
+                  },
+                  child: Text("Add to Library"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to Write Review screen
+                  },
+                  child: Text("Write Review"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to Read Reviews screen
+                  },
+                  child: Text("Read Reviews"),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
