@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   final List<Map<String, String>> recommendedBooks = [
     {
-      'title': 'The Alchemist',
-      'author': 'Paulo Coelho',
-      'image': 'assets/book1.png',
+      'title': 'The Cask of Amatillado',
+      'author': 'Edgar Allan Poe',
+      'image': 'assets/C:/Users/jmorr/OneDrive/Desktop/Flutter projects/boook/android/book1.jpg',
     },
     {
-      'title': '1984',
-      'author': 'George Orwell',
-      'image': 'assets/book2.png',
+      'title': 'Harry Potter and the Chamber of Secrets',
+      'author': 'J.K. Rowling',
+      'image': 'assets/C:/Users/jmorr/OneDrive/Desktop/Flutter projects/boook/android/book2.jpg',
     },
     {
       'title': 'To Kill a Mockingbird',
       'author': 'Harper Lee',
-      'image': 'assets/book3.png',
+      'image': 'assets/C:Users/jmorr/OneDrive/Desktop/Flutter projects/boook/android/book3.jpg',
     },
   ];
 
