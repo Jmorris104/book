@@ -17,12 +17,11 @@ class LibraryScreen extends StatefulWidget {
 }
 
 class _LibraryScreenState extends State<LibraryScreen> {
-  // Dummy data
+  // Updated book data
   final List<Map<String, String>> books = [
-    {'title': 'The Cask of Amatillado', 'author': 'Author A', 'category': 'Reading'},
-    {'title': 'Harry Potter and the Chamber of Secrets', 'author': 'Author B', 'category': 'To Read'},
-    {'title': 'To Kill a Mockingbird ', 'author': 'Harper Lee', 'category': 'Finished'},
-  
+    {'title': 'The Cask of Amontillado', 'author': 'Edgar Allan Poe', 'category': 'Reading'},
+    {'title': 'Harry Potter and the Chamber of Secrets', 'author': 'J.K. Rowling', 'category': 'To Read'},
+    {'title': 'To Kill a Mockingbird', 'author': 'Harper Lee', 'category': 'Finished'},
   ];
 
   String selectedCategory = 'Reading';
@@ -30,7 +29,6 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Filter books by category
     final filteredBooks = books.where((book) => book['category'] == selectedCategory).toList();
 
     return Scaffold(
@@ -49,7 +47,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
       ),
       body: Column(
         children: [
-          // Tabs for categories
+          // Category tabs
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -63,13 +61,13 @@ class _LibraryScreenState extends State<LibraryScreen> {
                   },
                   child: Text(category),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedCategory == category ? Colors.blue : Colors.grey,
+                    backgroundColor: selectedCategory == category ? Colors.red : Colors.grey,
                   ),
                 );
               }).toList(),
             ),
           ),
-          // Display books
+          // Book display
           Expanded(
             child: isGridView
                 ? GridView.builder(
@@ -134,7 +132,7 @@ class BookCard extends StatelessWidget {
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.book, size: 50, color: Colors.blue),
+                  Icon(Icons.book, size: 50, color: Colors.green),
                   SizedBox(height: 10),
                   Text(book['title'] ?? '', style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(book['author'] ?? ''),
@@ -165,7 +163,7 @@ class BookDetailsScreen extends StatelessWidget {
             SizedBox(height: 10),
             Text('Author: ${book['author']}', style: TextStyle(fontSize: 16)),
             SizedBox(height: 20),
-            Text('Description: \nLorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            Text('Description: \nThis is a placeholder for the book description.',
                 style: TextStyle(fontSize: 14)),
           ],
         ),
